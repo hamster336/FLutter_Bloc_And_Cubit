@@ -2,11 +2,15 @@ import 'dart:developer';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-sealed class CounterEvent {}    // base event extending increment and decrement events
+// sealed class - can be inherited within the same file only
+// final class - cannot be inherited at all
 
-class CounterIncrement extends CounterEvent {}
+// base event extending increment and decrement events
+sealed class CounterEvent {}      
 
-class CounterDecrement extends CounterEvent {}
+final class CounterIncrement extends CounterEvent {}
+
+final class CounterDecrement extends CounterEvent {}
 
 class CounterBloc extends Bloc<CounterEvent, int> {
   CounterBloc(super.initialState) {
